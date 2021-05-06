@@ -1,15 +1,13 @@
 import {
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton,
-  IonList, IonItem
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar
 } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import ApiController from '../components/ApiController';
 import './Home.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 const Home: React.FC = () => {
 
-  const apiKey = ''
+/*   const apiKey = ''
   const endpoint = ``;
   const url = '';
 
@@ -21,7 +19,7 @@ const Home: React.FC = () => {
     }).then(reponse => {
 
     })
-  }
+  } */
 
   return (
     <IonPage>
@@ -36,7 +34,6 @@ const Home: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* <ExploreContainer /> */}
         <ApiController />
       </IonContent>
     </IonPage>
