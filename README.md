@@ -2,7 +2,7 @@
 
 3r Entrega Ionic (Ionic App con API pública)
 
-Run npm start to run project
+Run ionic serve || npm start to run project
 
 Links:
 
