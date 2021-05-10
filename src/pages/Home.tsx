@@ -1,7 +1,7 @@
 import {
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar
 } from '@ionic/react';
-// import ApiController from '../components/ApiController';
+import ApiController from '../components/ApiController';
 import SearchBar from '../components/SearchBar';
 import './Home.css';
 // import axios from 'axios';
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* <ApiController /> */}
+        <ApiController />
         <SearchBar />
       </IonContent>
     </IonPage>

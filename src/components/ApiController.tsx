@@ -8,7 +8,9 @@ const ApiController: React.FC<ContainerProps> = () => {
   const clientId = '955fbe8265ca446283c3c8169cf5fa1c';
   const clientSecret = 'b33030dba12e46eb84156830c55469af';
 
-  let accessToken;
+  let accessToken = '';
+
+  let response;
 
   const getToken = () => {
     console.log('getting token');
@@ -40,10 +42,39 @@ const ApiController: React.FC<ContainerProps> = () => {
 
   }
 
+  const getResults = (query: String, limit: Number) => {
+    console.log('getting results');
+    query.replace(' ', '+');
+    axios(
+      {
+        url: 'https://api.spotify.com/v1/search?q='+query+'&type=track&limit='+limit,
+        method: 'get',
+       
+       /*  params: {
+          grant_type : 'client_credentials'
+        } */
+        headers: {
+          'Accept' : 'application/json',
+          'Content-Type' : 'application/json',
+          'Authorization' : 'Bearer ' + accessToken,
+        },        
+
+      }).then(response => {
+        console.log(response);
+
+        response = response.data.tracks;
+        
+      }).catch(error => {
+        console.log(error.response);
+      })
+
+  }
+
+
 
   return (
     <div className="container">
-      <button onClick={() => getToken()}>Get token</button>
+      <button onClick={() => {getToken(); setTimeout(function(){getResults("Stitches", 10)},1000)}}>Get token</button>
     </div>
   );
 };
