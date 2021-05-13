@@ -8,3 +8,11 @@
     justify-content: center;
 }
 
+#cardHeader{
+    display: flex;
+    width: 100%;
+}
+
+#searchBar{
+    width: 70%;
+}
