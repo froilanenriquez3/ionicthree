@@ -1,0 +1,10 @@
+#resultsCard {
+    min-width: 60vw;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
