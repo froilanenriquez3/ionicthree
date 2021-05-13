@@ -19,9 +19,10 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
 
             <IonCard id="resultsCard">
-                <IonCardHeader>
-                        <IonButton color="primary">Search</IonButton>
+                <IonCardHeader id="cardHeader">
+                    
                     <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
+                    <IonButton color="primary">Search</IonButton>
 
                 </IonCardHeader>
 
