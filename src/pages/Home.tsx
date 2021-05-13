@@ -22,7 +22,6 @@ const Home: React.FC = () => {
             <IonTitle size="large">Froilex</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ApiController />
         <SearchBar />
       </IonContent>
     </IonPage>

@@ -1,9 +1,9 @@
 import axios from 'axios';
 var querystring = require('querystring');
 
-interface ContainerProps { }
+// interface ContainerProps { search: string };
 
-const ApiController: React.FC<ContainerProps> = () => {
+const ApiController: React.FC<{search:string}> = ({search}) => {
 
   const clientId = '955fbe8265ca446283c3c8169cf5fa1c';
   const clientSecret = 'b33030dba12e46eb84156830c55469af';
@@ -42,8 +42,10 @@ const ApiController: React.FC<ContainerProps> = () => {
 
   }
 
-  const getResults = (query: String, limit: Number) => {
+  const getResults = (query:string, limit: Number) => {
     console.log('getting results');
+    console.log(search);
+    console.log(query);
     query.replace(' ', '+');
     axios(
       {
@@ -74,7 +76,9 @@ const ApiController: React.FC<ContainerProps> = () => {
 
   return (
     <div className="container">
-      <button onClick={() => {getToken(); setTimeout(function(){getResults("Stitches", 10)},1000)}}>Get token</button>
+      <button onClick={() => {getToken(); setTimeout(function(){
+        getResults(search, 10);
+      }, 2000)}}>Get token</button>
     </div>
   );
 };
