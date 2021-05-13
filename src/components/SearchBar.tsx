@@ -4,6 +4,7 @@ import {
     IonLabel, IonList, IonItem, IonSearchbar,
 } from '@ionic/react';
 import React, { useState } from 'react';
+import ApiController, {  } from './ApiController';
 
 interface ContainerProps { }
 
@@ -14,10 +15,12 @@ const SearchBar: React.FC<ContainerProps> = () => {
     const [results] = useState(["hello ", " hello ", " helloooo"]);
 
 
+
+
     return (
         <div className="container" >
 
-
+            <ApiController search={searchText}/>
             <IonCard id="resultsCard">
                 <IonCardHeader id="cardHeader">
                     
