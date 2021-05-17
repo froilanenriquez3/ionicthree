@@ -5,7 +5,7 @@ var querystring = require('querystring');
 
 // interface ContainerProps { search: string };
 
-const ApiController: React.FC<{search:string}> = ({search}) => {
+const ApiController: React.FC<{search:string, onResultsChange: any}> = ({search, onResultsChange}) => {
 
   const clientId = '955fbe8265ca446283c3c8169cf5fa1c';
   const clientSecret = 'b33030dba12e46eb84156830c55469af';
@@ -14,7 +14,7 @@ const ApiController: React.FC<{search:string}> = ({search}) => {
 
   let numberResults = 10;
 
-  let response;
+  let results : Object[];
 
   const getToken = () => {
     console.log('getting token');
@@ -70,12 +70,16 @@ const ApiController: React.FC<{search:string}> = ({search}) => {
       }).then(response => {
         console.log(response);
 
-        response = response.data.tracks;
+        results = response.data.tracks.items;
         
       }).catch(error => {
         console.log(error.response);
       })
 
+  }
+
+  const handleChange = () => { 
+    onResultsChange(results);
   }
 
 
