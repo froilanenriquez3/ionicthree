@@ -5,6 +5,7 @@ import {
 } from '@ionic/react';
 import React, { useState } from 'react';
 import ApiController, {  } from './ApiController';
+import { url } from 'node:inspector';
 
 interface ContainerProps { }
 
@@ -17,7 +18,6 @@ const SearchBar: React.FC<ContainerProps> = () => {
     const handleResultsChange = (value: []) => {
         setResults(value);
     }
-
 
 
     return (
