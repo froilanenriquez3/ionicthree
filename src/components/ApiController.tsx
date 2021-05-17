@@ -1,4 +1,6 @@
+import { IonButton } from '@ionic/react';
 import axios from 'axios';
+import React from 'react';
 var querystring = require('querystring');
 
 // interface ContainerProps { search: string };
@@ -9,6 +11,8 @@ const ApiController: React.FC<{search:string}> = ({search}) => {
   const clientSecret = 'b33030dba12e46eb84156830c55469af';
 
   let accessToken = '';
+
+  let numberResults = 10;
 
   let response;
 
@@ -35,6 +39,8 @@ const ApiController: React.FC<{search:string}> = ({search}) => {
 
         accessToken = response.data.access_token;
         console.log(accessToken);
+
+        getResults(search, numberResults);
         
       }).catch(error => {
         console.log(error.response);
@@ -76,9 +82,7 @@ const ApiController: React.FC<{search:string}> = ({search}) => {
 
   return (
     <div className="container">
-      <button onClick={() => {getToken(); setTimeout(function(){
-        getResults(search, 10);
-      }, 2000)}}>Get token</button>
+      <IonButton color="primary" onClick={() => {getToken()}}>Search</IonButton>
     </div>
   );
 };

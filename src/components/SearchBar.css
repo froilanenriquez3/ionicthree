@@ -16,3 +16,7 @@
 #searchBar{
     width: 70%;
 }
+
+IonButton{
+    padding-top: 10px;
+}

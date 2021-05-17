@@ -20,13 +20,12 @@ const SearchBar: React.FC<ContainerProps> = () => {
     return (
         <div className="container" >
 
-            <ApiController search={searchText}/>
             <IonCard id="resultsCard">
                 <IonCardHeader id="cardHeader">
                     
                     <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
-                    <IonButton color="primary">Search</IonButton>
-
+                    <ApiController search={searchText}/>
+                        
                 </IonCardHeader>
 
                 <IonCardContent>
