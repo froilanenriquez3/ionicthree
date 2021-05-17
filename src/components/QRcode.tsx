@@ -1,12 +1,15 @@
-import SearchBar from "./SearchBar";
-
-var React = require('react');
+import React from 'react';
 var QRCode = require('qrcode.react');
+// import QRCode from 'qrcode.react';
+interface ContainerProps {
+  url: string 
+}
 
-React.render(
-  <QRCode value="https://facebook.github.io/react/" />,
-    SearchBar
-);
+const QRComponent:  React.FC<ContainerProps> = ({url}) => {
 
+  return (
+    <QRCode value={url} />
+  );
+};
 
-export{}
+export default QRComponent;
