@@ -17,6 +17,16 @@
     width: 70%;
 }
 
-IonButton{
-    padding-top: 10px;
+#search{
+    margin-top: 10px;
+}
+
+
+.imageThumbnail{
+    margin: 1%;
+    border: solid black;
+}
+
+.listItem {
+    margin-left: 1%;
 }
