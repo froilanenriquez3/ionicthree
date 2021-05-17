@@ -1,6 +1,6 @@
 import './SearchBar.css';
 import {
-    IonButton, IonCard, IonCardContent, IonCardHeader,
+    IonCard, IonCardContent, IonCardHeader,
     IonLabel, IonList, IonItem, IonSearchbar,
 } from '@ionic/react';
 import React, { useState } from 'react';
@@ -12,8 +12,11 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
     const [searchText, setSearchText] = useState('');
 
-    const [results] = useState(["hello ", " hello ", " helloooo"]);
+    const [results, setResults] = useState([]);
 
+    const handleResultsChange = (value: []) => {
+        setResults(value);
+    }
 
 
 
@@ -24,7 +27,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
                 <IonCardHeader id="cardHeader">
                     
                     <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
-                    <ApiController search={searchText}/>
+                    <ApiController search={searchText} onResultsChange={handleResultsChange} />
                         
                 </IonCardHeader>
 
