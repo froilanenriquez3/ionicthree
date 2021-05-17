@@ -4,7 +4,8 @@ import {
     IonLabel, IonList, IonItem, IonNote, IonSearchbar,
 } from '@ionic/react';
 import React, { useState } from 'react';
-import ApiController, { } from './ApiController';
+import ApiController, {  } from './ApiController';
+import { url } from 'node:inspector';
 
 interface ContainerProps { }
 
@@ -18,7 +19,6 @@ const SearchBar: React.FC<ContainerProps> = () => {
         console.log("Setting results");
         setResults(value);
     }
-
 
 
     return (
