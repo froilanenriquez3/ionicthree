@@ -71,6 +71,7 @@ const ApiController: React.FC<{search:string, onResultsChange: any}> = ({search,
         console.log(response);
 
         results = response.data.tracks.items;
+        handleChange();
         
       }).catch(error => {
         console.log(error.response);
@@ -86,7 +87,7 @@ const ApiController: React.FC<{search:string, onResultsChange: any}> = ({search,
 
   return (
     <div className="container">
-      <IonButton color="primary" onClick={() => {getToken()}}>Search</IonButton>
+      <IonButton id="search" color="primary" onClick={() => {getToken()}}>Search</IonButton>
     </div>
   );
 };
