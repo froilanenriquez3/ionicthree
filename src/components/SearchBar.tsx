@@ -36,9 +36,10 @@ const SearchBar: React.FC<ContainerProps> = () => {
                     <IonList>
 
                         {results.map((item: {
-                            name: String
+                            name: string
+                            id: string
                             album: {
-                                name: String,
+                                name: string,
                                 images: [
                                     {},
                                     {},
@@ -49,11 +50,11 @@ const SearchBar: React.FC<ContainerProps> = () => {
                             }
                             artists: [
                                 {
-                                    name: String
+                                    name: string
                                 }
                             ]
                         }) => (
-                            <IonItem >
+                            <IonItem key={item.id}>
                                 <img className="imageThumbnail" src={item.album.images[2].url} alt="Album" />
                                 <IonLabel className="listItem">
                                     {item.name.length < 40 ?
