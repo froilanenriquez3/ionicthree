@@ -1,10 +1,10 @@
 import './SearchBar.css';
 import {
     IonCard, IonCardContent, IonCardHeader,
-    IonLabel, IonList, IonItem, IonSearchbar,
+    IonLabel, IonList, IonItem, IonNote, IonSearchbar,
 } from '@ionic/react';
 import React, { useState } from 'react';
-import ApiController, {  } from './ApiController';
+import ApiController, { } from './ApiController';
 
 interface ContainerProps { }
 
@@ -15,6 +15,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
     const [results, setResults] = useState([]);
 
     const handleResultsChange = (value: []) => {
+        console.log("Setting results");
         setResults(value);
     }
 
@@ -25,18 +26,51 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
             <IonCard id="resultsCard">
                 <IonCardHeader id="cardHeader">
-                    
+
                     <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
                     <ApiController search={searchText} onResultsChange={handleResultsChange} />
-                        
+
                 </IonCardHeader>
 
                 <IonCardContent>
                     <IonList>
 
-                        {results.map((element: String) => (
-                            <IonItem>
-                                <IonLabel>{element}</IonLabel>
+                        {results.map((item: {
+                            name: String
+                            album: {
+                                name: String,
+                                images: [
+                                    {},
+                                    {},
+                                    {
+                                        url: string
+                                    }
+                                ]
+                            }
+                            artists: [
+                                {
+                                    name: String
+                                }
+                            ]
+                        }) => (
+                            <IonItem >
+                                <img className="imageThumbnail" src={item.album.images[2].url} alt="Album" />
+                                <IonLabel className="listItem">
+                                    {item.name.length < 40 ?
+                                        item.name
+                                        :
+                                        item.name.substring(0, 40) + "..."
+                                    } </IonLabel>
+                                <IonNote slot="end" color="gray"> {
+                                    item.album.name.length < 40 ?
+                                        item.album.name
+                                        :
+                                        item.album.name.substring(0, 40) + "..."
+                                    } : {item.artists[0].name.length < 40 ?
+                                    item.artists[0].name
+                                    :
+                                    item.artists[0].name.substring(0, 40) + "..."
+                                    } </IonNote>
                             </IonItem>
                         ))}
 
