@@ -8,7 +8,7 @@ interface ContainerProps {
 const QRComponent:  React.FC<ContainerProps> = ({url}) => {
 
   return (
-    <QRCode value={url} />
+    <QRCode className="qrCode" value={url} />
   );
 };
 

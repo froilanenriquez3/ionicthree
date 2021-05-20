@@ -1,7 +1,8 @@
 import './SearchBar.css';
 import {
-    IonButton, IonCard, IonCardContent, IonCardHeader,
+    IonButton, IonCard, IonCardContent, IonCardHeader, IonHeader,
     IonLabel, IonList, IonItem, IonModal, IonNote, IonSearchbar, IonText
+
 } from '@ionic/react';
 import React, { useState } from 'react';
 import ApiController, { } from './ApiController';
@@ -40,6 +41,27 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
     const [qurl, setQurl] = useState('');
 
+    const [currentTrack, setCurrentTrack] = useState({name: '',
+        id: '',
+        album: {
+            name: '',
+            images: [
+                {},
+                {},
+                {
+                    url: ''
+                }
+            ]
+        },
+        artists: [
+            {
+                name: ''
+            }
+        ],
+        external_urls: {
+            spotify: ''
+        }});
+
     const handleResultsChange = (value: []) => {
         console.log("Setting results");
         if (!searched) {
@@ -52,8 +74,8 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
     const [searched, setSearched] = useState(false);
 
-    const openModal = (url: string) => {
-
+    const openModal = (url: string, track: Track) => {
+        setCurrentTrack(track);
         console.log(url);
         setQurl(url);
         setShowModal(true);
@@ -79,7 +101,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
                             {results.map((item: Track) => (
 
-                                <IonItem  key={item.id} button onClick={() => { openModal(item.external_urls.spotify) }}>
+                                <IonItem key={item.id} button onClick={() => { openModal(item.external_urls.spotify, item) }}>
                                     <img className="imageThumbnail" src={item.album.images[2].url} alt="Album" />
                                     <IonLabel className="listItem">
                                         {item.name.length < 40 ?
@@ -125,9 +147,10 @@ const SearchBar: React.FC<ContainerProps> = () => {
             </IonCard>
 
 
-            <IonModal isOpen={showModal} cssClass='my-custom-class'>
+            <IonModal isOpen={showModal} cssClass='modal'>
+                <IonHeader className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
                 <QRCode url={qurl} />
-                <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
+                <IonButton color="danger" className="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
             </IonModal>
 
         </div>
