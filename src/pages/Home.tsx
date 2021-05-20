@@ -13,17 +13,19 @@ const Home: React.FC = () => {
       <IonHeader collapse="condense">
         <IonToolbar color="tertiary">
 
-          <IonButtons slot="start" id="logo">
-          <IonIcon icon={musicalNotesOutline} />
-            <IonButton color="light">
-              Froilex
+          <IonButtons id="logo">
+            <IonButtons id="logoSec">
+              <IonIcon icon={musicalNotesOutline} id="logoIcon"/>
+              <IonButton color="light" expand="block" id="logoText">
+                Froilex
             </IonButton>
-            
+            </IonButtons>
 
-            <IonButton color="light" expand="block">
+
+            <IonButton color="light" >
               <IonIcon icon={peopleOutline} slot="start"></IonIcon> About Us
             </IonButton>
-            <IonButton color="light" expand="block">
+            <IonButton color="light" >
               <IonIcon icon={mailOutline} slot="start"></IonIcon> Contact Us
             </IonButton>
           </IonButtons>
