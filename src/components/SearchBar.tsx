@@ -1,7 +1,7 @@
 import './SearchBar.css';
 import {
     IonButton, IonCard, IonCardContent, IonCardHeader,
-    IonLabel, IonList, IonItem, IonModal, IonNote, IonSearchbar,
+    IonLabel, IonList, IonItem, IonModal, IonNote, IonSearchbar, IonText
 } from '@ionic/react';
 import React, { useState } from 'react';
 import ApiController, { } from './ApiController';
@@ -63,7 +63,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
     return (
         <div className="container" >
 
-            <IonCard id="resultsCard">
+            <IonCard id="resultsCard" color="dark">
                 <IonCardHeader id="cardHeader">
 
                     <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
@@ -72,13 +72,14 @@ const SearchBar: React.FC<ContainerProps> = () => {
                 </IonCardHeader>
 
                 <IonCardContent>
-                    <IonList>
 
-                        {(results.length > 0) ?
+                    {(results.length > 0) ?
 
-                            results.map((item: Track) => (
+                        <IonList >
 
-                                <IonItem key={item.id} button onClick={() => { openModal(item.external_urls.spotify) }}>
+                            {results.map((item: Track) => (
+
+                                <IonItem  key={item.id} button onClick={() => { openModal(item.external_urls.spotify) }}>
                                     <img className="imageThumbnail" src={item.album.images[2].url} alt="Album" />
                                     <IonLabel className="listItem">
                                         {item.name.length < 40 ?
@@ -100,19 +101,23 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
                             ))
 
+                            }
+                        </IonList>
+
+                        :
+
+                        [searched ?
+                            <IonText color="light">
+                                <p>There are no results for your query.</p>
+                            </IonText>
                             :
+                            <IonText color="light">
+                                <p>Click the search button.</p>
+                            </IonText>
+                        ]
 
-                            [
-                                (searched ?
-                                    "There are no results for your query."
-                                    :
-                                    "Click the search button"
-                                )
-                            ]
+                    }
 
-                        }
-
-                    </IonList>
 
 
 
