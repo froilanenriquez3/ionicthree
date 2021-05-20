@@ -24,7 +24,8 @@
 
 .imageThumbnail{
     margin: 1%;
-    border: solid black;
+    border: solid black 1px;
+
 }
 
 .listItem {
