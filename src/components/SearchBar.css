@@ -30,3 +30,26 @@
 .listItem {
     margin-left: 1%;
 }
+
+.modalHeader{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3880ff;
+}
+
+.ion-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeModal{
+    width: 100%;
+}
+
+.qrCode{
+    /* width: 30% !important; */
+    /* height: 35% !important; */
+}
