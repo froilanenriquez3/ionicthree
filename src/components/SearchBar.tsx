@@ -1,8 +1,7 @@
 import './SearchBar.css';
 import {
-    IonButton, IonCard, IonCardContent, IonCardHeader, IonHeader,
-    IonLabel, IonList, IonItem, IonModal, IonNote, IonSearchbar, IonText
-
+    IonButton, IonCard, IonCardContent, IonCardHeader,
+    IonLabel, IonList, IonHeader, IonItem, IonModal, IonNote, IonSearchbar, IonText
 } from '@ionic/react';
 import React, { useState } from 'react';
 import ApiController, { } from './ApiController';
@@ -88,7 +87,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
             <IonCard id="resultsCard" color="dark">
                 <IonCardHeader id="cardHeader">
 
-                    <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
+                    <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated id="searchBarComponent" ></IonSearchbar>
                     <ApiController search={searchText} onResultsChange={handleResultsChange} />
 
                 </IonCardHeader>
@@ -98,10 +97,10 @@ const SearchBar: React.FC<ContainerProps> = () => {
                     {(results.length > 0) ?
 
                         <IonList >
-
                             {results.map((item: Track) => (
 
                                 <IonItem key={item.id} button onClick={() => { openModal(item.external_urls.spotify, item) }}>
+
                                     <img className="imageThumbnail" src={item.album.images[2].url} alt="Album" />
                                     <IonLabel className="listItem">
                                         {item.name.length < 40 ?
@@ -110,11 +109,11 @@ const SearchBar: React.FC<ContainerProps> = () => {
                                             item.name.substring(0, 40) + "..."
                                         } </IonLabel>
                                     <IonNote slot="end" color="gray"> {
-                                        item.album.name.length < 40 ?
-                                            item.album.name
-                                            :
-                                            item.album.name.substring(0, 40) + "..."
-                                    } : {item.artists[0].name.length < 40 ?
+                                        // item.album.name.length < 40 ?
+                                        //     item.album.name
+                                        //     :
+                                        //     item.album.name.substring(0, 40) + "..."
+                                    }  {item.artists[0].name.length < 40 ?
                                         item.artists[0].name
                                         :
                                         item.artists[0].name.substring(0, 40) + "..."
@@ -141,14 +140,12 @@ const SearchBar: React.FC<ContainerProps> = () => {
                     }
 
 
-
-
                 </IonCardContent>
             </IonCard>
 
 
-            <IonModal isOpen={showModal} cssClass='modal'>
-                <IonHeader className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
+            <IonModal isOpen={showModal} cssClass='modal' backdropDismiss={false} >
+                <IonHeader id="modalHeader" className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
                 <QRCode url={qurl} />
                 <IonButton color="danger" className="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
             </IonModal>

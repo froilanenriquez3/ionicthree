@@ -1,5 +1,5 @@
 #resultsCard {
-    min-width: 60vw;
+    min-width: 80vw;
 
 }
 
@@ -21,8 +21,13 @@
     margin-top: 10px;
 }
 
+/* #searchBarComponent{ */
+    /* color: white; */
+/* } */
 
 .imageThumbnail{
+    width: 32px;
+    max-width: 64px;
     margin: 1%;
     border: solid black 1px;
 
@@ -30,6 +35,11 @@
 
 .listItem {
     margin-left: 1%;
+}
+
+#modalHeader{
+    color: white;
+    background-color: #5260ff;
 }
 
 .modalHeader{
@@ -48,9 +58,10 @@
 
 .closeModal{
     width: 100%;
+    margin-bottom: 0;
 }
 
-.qrCode{
-    /* width: 30% !important; */
-    /* height: 35% !important; */
-}
+/* .qrCode{
+    width: 30% !important; 
+     height: 35% !important;
+ }  */

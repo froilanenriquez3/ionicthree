@@ -1,3 +1,17 @@
 #logo{
     margin-left: 1%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#logoSec{
+    margin-right: 10%;
+}
+
+#logoText{
+    font-size: 19px;
+}
+
+#logoIcon{
+    font-size: 20px;
 }
