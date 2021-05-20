@@ -87,7 +87,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
             <IonCard id="resultsCard" color="dark">
                 <IonCardHeader id="cardHeader">
 
-                    <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated ></IonSearchbar>
+                    <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated id="searchBarComponent" ></IonSearchbar>
                     <ApiController search={searchText} onResultsChange={handleResultsChange} />
 
                 </IonCardHeader>
@@ -109,11 +109,11 @@ const SearchBar: React.FC<ContainerProps> = () => {
                                             item.name.substring(0, 40) + "..."
                                         } </IonLabel>
                                     <IonNote slot="end" color="gray"> {
-                                        item.album.name.length < 40 ?
-                                            item.album.name
-                                            :
-                                            item.album.name.substring(0, 40) + "..."
-                                    } : {item.artists[0].name.length < 40 ?
+                                        // item.album.name.length < 40 ?
+                                        //     item.album.name
+                                        //     :
+                                        //     item.album.name.substring(0, 40) + "..."
+                                    }  {item.artists[0].name.length < 40 ?
                                         item.artists[0].name
                                         :
                                         item.artists[0].name.substring(0, 40) + "..."
@@ -145,7 +145,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
 
             <IonModal isOpen={showModal} cssClass='modal'>
-                <IonHeader className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
+                <IonHeader id="modalHeader" className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
                 <QRCode url={qurl} />
                 <IonButton color="danger" className="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
             </IonModal>
