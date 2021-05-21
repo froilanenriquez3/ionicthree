@@ -1,5 +1,5 @@
 import {
-  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar
+  IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonToolbar
 } from '@ionic/react';
 import { peopleOutline, mailOutline, musicalNotesOutline } from 'ionicons/icons';
 import SearchBar from '../components/SearchBar';
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader collapse="condense">
+      {/* <IonHeader collapse="condense">
         <IonToolbar color="tertiary">
 
           <IonButtons id="logo">
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
             </IonButton>
           </IonButtons>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
 
       <IonHeader>
         <IonToolbar color="tertiary">
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
 
 
 
-          <IonButtons slot="secondary">
+          <IonButtons slot="end">
             <IonButton color="light" expand="block">
               <IonIcon icon={peopleOutline} slot="start"></IonIcon> About Us
             </IonButton>
