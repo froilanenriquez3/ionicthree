@@ -40,14 +40,11 @@
 #modalHeader{
     color: white;
     background-color: #5260ff;
-}
-
-.modalHeader{
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3880ff;
+    /* background-color: #3880ff; */
 }
 
 .ion-page{
@@ -56,7 +53,7 @@
     align-items: center;
 }
 
-.closeModal{
+#closeModal{
     width: 100%;
     margin-bottom: 0;
 }

@@ -40,7 +40,8 @@ const SearchBar: React.FC<ContainerProps> = () => {
 
     const [qurl, setQurl] = useState('');
 
-    const [currentTrack, setCurrentTrack] = useState({name: '',
+    const [currentTrack, setCurrentTrack] = useState({
+        name: '',
         id: '',
         album: {
             name: '',
@@ -59,7 +60,8 @@ const SearchBar: React.FC<ContainerProps> = () => {
         ],
         external_urls: {
             spotify: ''
-        }});
+        }
+    });
 
     const handleResultsChange = (value: []) => {
         console.log("Setting results");
@@ -85,12 +87,13 @@ const SearchBar: React.FC<ContainerProps> = () => {
         <div className="container" >
 
             <IonCard id="resultsCard" color="dark">
+        
                 <IonCardHeader id="cardHeader">
 
-                    <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated id="searchBarComponent" color="light" ></IonSearchbar>
-                    <ApiController search={searchText} onResultsChange={handleResultsChange} />
+                        <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated id="searchBarComponent" color="light" ></IonSearchbar>
+                        <ApiController search={searchText} onResultsChange={handleResultsChange} />
 
-                </IonCardHeader>
+                </IonCardHeader> 
 
                 <IonCardContent>
 
@@ -144,10 +147,10 @@ const SearchBar: React.FC<ContainerProps> = () => {
             </IonCard>
 
 
-            <IonModal isOpen={showModal} cssClass='modal' backdropDismiss={false} >
-                <IonHeader id="modalHeader" className="modalHeader">{currentTrack.name}  ({ currentTrack.artists[0].name})</IonHeader>
+            <IonModal isOpen={showModal}  backdropDismiss={false}>
+                <IonHeader id="modalHeader" >{currentTrack.name}  ({currentTrack.artists[0].name})</IonHeader>
                 <QRCode url={qurl} />
-                <IonButton color="danger" className="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
+                <IonButton color="danger" id="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
             </IonModal>
 
         </div>
