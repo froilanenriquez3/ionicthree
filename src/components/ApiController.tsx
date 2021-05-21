@@ -87,7 +87,7 @@ const ApiController: React.FC<{search:string, onResultsChange: any}> = ({search,
 
   return (
     <div className="container">
-      <IonButton id="search" color="tertiary" onClick={() => {getToken()}}>Search</IonButton>
+      <IonButton id="search" color="tertiary" type="submit" onClick={() => {getToken()}}>Search</IonButton>
     </div>
   );
 };
