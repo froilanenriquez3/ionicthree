@@ -147,7 +147,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
             </IonCard>
 
 
-            <IonModal isOpen={showModal}  backdropDismiss={false}>
+            <IonModal isOpen={showModal}  backdropDismiss={false} >
                 <IonHeader id="modalHeader" >{currentTrack.name}  ({currentTrack.artists[0].name})</IonHeader>
                 <QRCode url={qurl} />
                 <IonButton color="danger" id="closeModal" onClick={() => setShowModal(false)}>Close</IonButton>
