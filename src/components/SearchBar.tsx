@@ -136,7 +136,7 @@ const SearchBar: React.FC<ContainerProps> = () => {
                             </IonText>
                             :
                             <IonText color="light">
-                                <p>Click the search button.</p>
+                                <p>Type in a song, album or artist and click the search button.</p>
                             </IonText>
                         ]
 
